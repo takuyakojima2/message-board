@@ -15,7 +15,14 @@
       </div>
     </div>
   </nav>
+  <%# フラッシュメッセージ表示用　Start %>
   <div class="container">
+    <% if notice %>
+      <div class="alert alert-info">
+        <%= notice %>
+      </div>
+    <% end %>
+    <%# フラッシュメッセージ表示用　End %>
     <%= yield %>
   </div>
 </body>

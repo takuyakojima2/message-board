@@ -7,35 +7,15 @@
     <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
       <%= message.body %>
+      <%# 編集画面へのリンク　Start  %>
+      (<%= link_to "edit" , edit_message_path(message) %>
+       <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+      )
+      <%# 編集画面へのリンク　end  %>
       <br>
     <% end %>
   </div>
 </div>
 
-<%= form_for(@message) do |f| %>
-<%#= form_for(@message,html: {class: "form-inline"} ) do |f| %>
- <%# エラーメッセージ表示用 start%>
- <% if @message.errors.present? %>
-    <div class="alert alert-danger">
-      <%= alert %>
-      <ul>
-        <% @message.errors.full_messages.each do |full_message| %>
-          <li>
-            <%= full_message %>
-          </li>
-        <% end %> 
-      </ul>
-    </div>
-  <% end %>
- <%# エラーメッセージ表示用 end%>
-
-  名前:
-  <%= f.text_field :name,:placeholder => 'name' %><br><br>
-
-  内容:
-  <%#= f.text_field :body %>
-  <%= f.text_area :body,:class => 'form-control',:placeholder => 'message' %><br><br>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-
-<% end %>
-
+<%#部分テンプレート「form.html.erb」を呼び出す%>
+<%= render 'form' %>
