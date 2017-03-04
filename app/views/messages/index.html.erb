@@ -12,17 +12,15 @@
   </div>
 </div>
 
-<%#= form_for(@message) do |f| %>
-<%= form_for(@message,html: {class: "form-inline"} ) do |f| %>
+<%= form_for(@message) do |f| %>
+<%#= form_for(@message,html: {class: "form-inline"} ) do |f| %>
 
   名前:
-  <%#= f.text_field :name %>
-  <%= f.text_area :name,:class => 'form-control' %>
-
+  <%= f.text_field :name,:placeholder => 'name' %><br><br>
 
   内容:
   <%#= f.text_field :body %>
-  <%= f.text_area :body,:class => 'form-control' %><br><br>
+  <%= f.text_area :body,:class => 'form-control',:placeholder => 'message' %><br><br>
   <%= f.submit class: "btn btn-sm btn-primary" %>
 
 <% end %>
