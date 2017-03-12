@@ -1,7 +1,7 @@
 <%= form_for(@message) do |f| %>
-<%#= form_for(@message,html: {class: "form-inline"} ) do |f| %>
- <%# エラーメッセージ表示用 start%>
- <% if @message.errors.present? %>
+  <%#= form_for(@message,html: {class: "form-inline"} ) do |f| %>
+  <%# エラーメッセージ表示用 start%>
+  <% if @message.errors.present? %>
     <div class="alert alert-danger">
       <%= alert %>
       <ul>
@@ -13,15 +13,17 @@
       </ul>
     </div>
   <% end %>
- <%# エラーメッセージ表示用 end%>
+  <%# エラーメッセージ表示用 end%>
 
   名前:
-  <%= f.text_field :name,:placeholder => 'name' %><br><br>
-
+  <%= f.text_field :name,:placeholder => 'name' %>
+  <br>
   内容:
   <%#= f.text_field :body %>
-  <%= f.text_area :body,:class => 'form-control',:placeholder => 'message' %><br><br>
+  <%= f.text_area :body,:class => 'form-control',:placeholder => 'message' %>
+  <br>
+  年齢:
+  <%= f.text_field :age,:placeholder => 'age' %><br><br>
   <%= f.submit class: "btn btn-sm btn-primary" %>
-
 <% end %>
 
